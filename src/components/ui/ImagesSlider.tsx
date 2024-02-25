@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/utils/cn";
+import { randomInt } from "crypto";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
@@ -68,13 +69,13 @@ export const ImagesSlider = ({
     };
 
     window.addEventListener("keydown", handleKeyDown);
-
+    let delay = 5000 + Math.floor(Math.random() * 5000 )
     // autoplay
     let interval: any;
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
-      }, 5000);
+      },  delay);
     }
 
     return () => {
